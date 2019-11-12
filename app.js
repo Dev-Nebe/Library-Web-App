@@ -10,9 +10,7 @@ const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 3000;
-const bookRouter = express.Router();
-const books = [];
-// Next hard code the books and include them.
+
 
 app.use(morgan('tiny'));
 app.use(express.static(path.join(__dirname, '/public/')));
@@ -20,28 +18,22 @@ app.use('/css', express.static(path.join(__dirname, '/node_modules/bootstrap/dis
 app.use('/js', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/js')));
 app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
 app.use('/js', express.static(path.join(__dirname, '/node_modules/popper.js/dist')));
-
-
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
+const nav = [
+  { link: '/books', title: 'Books' },
+  { link: '/authors', title: 'Authors' }
+];
+const bookRouter = require('./src/routes/bookRoutes')(nav);
 
-bookRouter.route('/')
-.get((req, res) => {
-  res.render('books', {
-    nav: [{ link: '/books', title: 'Books' },
-    { link: '/authors', title: 'Authors' }],
-    title: 'Library App'
-});
-});
 app.use('/books', bookRouter);
 
 
 app.get('/', (req, res) => {
   // res.sendFile(path.join(__dirname, 'views/index.html'));
   res.render('index.ejs', {
-    nav: [{ link: '/books', title: 'Books' },
-    { link: '/authors', title: 'Authors' }],
+    nav,
     title: 'Library App'
 });
 });
