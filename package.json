@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/Dev-Nebe/Library-Web-App#readme",
   "dependencies": {
+    "axios": "^0.19.0",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.3.1",
     "chalk": "^3.0.0",
@@ -41,7 +42,8 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "popper.js": "^1.16.0",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "xml2js": "^0.4.22"
   },
   "devDependencies": {
     "eslint": "^6.6.0",
