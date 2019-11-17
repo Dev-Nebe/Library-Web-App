@@ -13,6 +13,8 @@ module.exports = {
         "ecmaVersion": 2018
     },
     "rules": {
-        "comma-dangle": 0
+        "comma-dangle": 0,
+        "linebreak-style": 0,
+        "max-len": 0
     }
 };

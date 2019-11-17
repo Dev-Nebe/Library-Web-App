@@ -6,12 +6,12 @@
 		<title><%=title%></title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="css/styles.css" rel="stylesheet">
+		<link href="/css/styles.css" rel="stylesheet">
 	</head>
 	<body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
@@ -93,15 +93,15 @@
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              Sign Up! or <a href="/auth/signIn">Sign In</a>
-              <form class="card card-body" name="signUpForm" action="/auth/signUp" method="post">
+              Log In!
+              <form class="card card-body" name="signInForm" action="/auth/signIn" method="post">
                 <label>
                   UserName: <input name="username" id="username">
                 <label><br>
                 <label>
                   Password: <input name="password" id="password" type="password">
                 <label>
-                <button type="submit" class="btn btn-primary" style="margin-top: 10px">Submit</button>
+                <button type="submit" class="btn btn-primary" style="margin-top: 10px">Log In</button>
               </form>
             </div>
           </div>
@@ -161,7 +161,7 @@
 </footer>
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
 
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/6d241bcdf9.js" crossorigin="anonymous"></script>

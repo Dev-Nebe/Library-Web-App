@@ -1,62 +1,23 @@
 /* eslint-disable linebreak-style */
-
 const express = require('express');
-const sql = require('mssql');
-const debug = require('debug')('app:bookRoutes');
-
+const bookController = require('../controllers/bookController');
+const bookService = require('../services/goodreadsService');
 
 const bookRouter = express.Router();
 
 const router = (nav) => {
-  let books = [
-    {
-      title: 'The Wind in the Willows',
-      genre: 'Fantasy',
-      author: 'Kenneth Grahame',
-      read: false
-    },
-    {
-      title: 'Life On The Mississippi',
-      genre: 'History',
-      author: 'Mark Twain',
-      read: false
-    },
-    {
-      title: 'Childhood',
-      genre: 'Biography',
-      author: 'Lev Nikolayevich Tolstoy',
-      read: false
-    }
-  ];
+  // Route for the list of books
+  const { getIndex, getById, middleware } = bookController(bookService, nav);
 
+  bookRouter.use(middleware);
   bookRouter.route('/')
-    .get((req, res) => {
-      (async function query() {
-        const request = new sql.Request();
-        const { recordset } = await request.query('select * from books');
-        books = recordset;
-        res.render('bookListView',
-          {
-            nav,
-            title: 'Books',
-            books
-          });
-      }());
-    });
+    .get(getIndex);
 
-  bookRouter.route('/:id').get((req, res) => {
-    (async function query() {
-      const { id } = req.params;
-      const request = new sql.Request();
-      const { recordset } = await request.input('id', sql.Int, id).query('select * from books where id = @id');
-      res.render('bookView',
-        {
-          nav,
-          title: 'Book',
-          book: recordset[0]
-        });
-    }());
-  });
+  // Route for a specific book
+  bookRouter.route('/:id')
+    .get(getById);
+
+  // implement logout for the app
 
   return bookRouter;
 };

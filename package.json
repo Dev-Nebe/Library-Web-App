@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "set DEBUG=app:* & nodemon app.js",
+    "start": "set DEBUG=app,app:* & nodemon app.js",
     "lint": "eslint app.js"
   },
   "repository": {
@@ -25,17 +25,25 @@
   },
   "homepage": "https://github.com/Dev-Nebe/Library-Web-App#readme",
   "dependencies": {
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
     "bootstrap": "^4.3.1",
     "chalk": "^3.0.0",
+    "cookie-parser": "^1.4.4",
     "debug": "^4.1.1",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
+    "express-session": "^1.17.0",
     "jquery": "^3.4.1",
+    "mongodb": "^3.3.4",
     "morgan": "^1.9.1",
     "mssql": "^6.0.0",
     "nodemon": "^1.19.4",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "popper.js": "^1.16.0",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "xml2js": "^0.4.22"
   },
   "devDependencies": {
     "eslint": "^6.6.0",
